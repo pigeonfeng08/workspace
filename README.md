@@ -64,11 +64,7 @@
 
 ### 环境变量配置
 
-在`.env.local`文件中配置WakaTime API密钥：
-
-```env
-WAKATIME_API_KEY=waka_d9d1dc74-2dcb-439a-97c0-3dae1ad1bf74
-
+在`.env.local`文件中配置WakaTime API密钥：WAKATIME_API_KEY=waka_d9d1dc74-2dcb-439a-97c0-3dae1ad1bf74
 
 ### API实现
 1. 服务端API路由 ( /api/wakatime )
@@ -89,5 +85,55 @@ WAKATIME_API_KEY=waka_d9d1dc74-2dcb-439a-97c0-3dae1ad1bf74
 4. 练习卡片组件 - 标准化的练习展示格式
 ### 路由结构
 - /exercises - 练习列表页面
+
 - /exercises/[id] - 具体练习详情页面
+
 - 每个练习都有独立的路由和页面
+
+- ### 2. 安装依赖
+
+  ```bash
+  npm install
+  ```
+
+  ### 3. 配置环境变量
+
+  创建`.env.local`文件并添加以下配置：
+
+  ```env
+  WAKATIME_API_KEY=your_wakatime_api_key
+  QANYTHING_API_KEY=your_qanything_api_key
+  QANYTHING_API_URL=https://api.qanything.ai/v1
+  ```
+
+  ### 4. 运行开发服务器
+
+  ```bash
+  npm run dev
+  ```
+
+  访问 [http://localhost:3000](http://localhost:3000) 查看应用。
+
+  ### 5. 构建生产版本
+
+  ```bash
+  npm run build
+  npm start
+  ```
+
+  ## 部署
+
+  推荐使用Vercel进行部署：
+
+  1. 将代码推送到GitHub
+  2. 在Vercel中导入项目
+  3. 配置环境变量
+  4. 自动部署完成
+
+  ## 开发说明
+
+  - 使用TypeScript确保代码类型安全
+  - 采用Tailwind CSS实现响应式设计
+  - 遵循Next.js最佳实践
+  - API路由实现前后端分离
+  - 环境变量管理敏感信息
