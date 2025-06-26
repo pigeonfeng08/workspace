@@ -6,6 +6,8 @@ interface WakaTimeData {
     human_readable_total?: string;
     total_seconds?: number;
   };
+  error?: string;
+  details?: string;
 }
 
 export default function Footer() {
@@ -17,13 +19,19 @@ export default function Footer() {
     const fetchWakaTimeData = async () => {
       try {
         const response = await fetch('/api/wakatime');
-        if (!response.ok) {
-          throw new Error('Failed to fetch WakaTime data');
-        }
         const data = await response.json();
+        
+        if (!response.ok) {
+          console.error('WakaTime fetch error:', data);
+          throw new Error(data.error || 'Failed to fetch WakaTime data');
+        }
+        
+        console.log('WakaTime data received:', data);
         setWakaTimeData(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+        console.error('Footer WakaTime error:', errorMessage);
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -46,7 +54,9 @@ export default function Footer() {
               {loading ? (
                 <span className="text-gray-400">加载编码数据中...</span>
               ) : error ? (
-                <span className="text-red-400">编码数据加载失败</span>
+                <span className="text-red-400" title={error}>
+                  编码数据加载失败 (点击查看详情)
+                </span>
               ) : wakaTimeData?.data?.human_readable_total ? (
                 <span className="text-green-400">
                   📊 本周编码时长: {wakaTimeData.data.human_readable_total}
