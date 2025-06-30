@@ -21,7 +21,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 这里根据QAnything的实际API格式调整
     const response = await fetch(`${apiUrl}/chat`, {
       method: 'POST',
       headers: {
@@ -30,12 +29,12 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         message: question,
-        // 根据QAnything API文档添加其他必要参数
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`QAnything API error: ${response.status}`);
+      const errorBody = await response.text();
+      throw new Error(`QAnything API error: ${response.status} ${response.statusText}. Body: ${errorBody}`);
     }
 
     const data = await response.json();

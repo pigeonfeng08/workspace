@@ -16,8 +16,55 @@ const exerciseData: Record<string, any> = {
         <li>页面结构设计</li>
       </ul>
     `,
-    demo: '/demos/html-basics.html',
+    demo: 'https://pigeonfeng08.github.io/test123/',
     code: 'https://github.com/pigeonfeng08/work1'
+  },
+  'react-components': {
+    title: 'React组件练习',
+    description: '构建可复用的React组件，包括状态管理和事件处理。',
+    content: `
+      <h2>练习内容</h2>
+      <p>这是一个React组件练习的示例。</p>
+      <ul>
+        <li>函数组件和类组件</li>
+        <li>Props和State</li>
+        <li>生命周期方法和Hooks</li>
+        <li>组件组合和复用</li>
+      </ul>
+    `,
+    demo: 'https://pigeonfeng08.github.io/test123/',
+    code: 'https://github.com/pigeonfeng08/work1'
+  },
+  'js-fundamentals': {
+    title: 'JavaScript基础',
+    description: 'JavaScript语法、DOM操作和事件处理练习',
+    content: `
+      <h2>练习内容</h2>
+      <p>这是一个JavaScript基础练习的示例。</p>
+      <ul>
+        <li>变量、数据类型和操作符</li>
+        <li>控制流（if/else, for, while）</li>
+        <li>函数和作用域</li>
+        <li>DOM操作和事件处理</li>
+      </ul>
+    `,
+    demo: 'https://pigeonfeng08.github.io/test123/',
+    code: 'https://github.com/pigeonfeng08/work1'
+  },
+  'nextjs-project': {
+    title: 'Next.js项目实战',
+    description: 'Next.js全栈应用开发和部署练习',
+    content: `
+      <h2>练习内容</h2>
+      <p>这是一个Next.js项目实战的示例。</p>
+      <ul>
+        <li>App Router和页面路由</li>
+        <li>数据获取 (Server Components, API Routes)</li>
+        <li>部署到Vercel</li>
+      </ul>
+    `,
+    demo: '/',
+    code: 'https://github.com/pigeonfeng08/workspace'
   },
   'css-styling': {
     title: 'CSS样式练习',
@@ -32,10 +79,9 @@ const exerciseData: Record<string, any> = {
         <li>CSS预处理器使用</li>
       </ul>
     `,
-    demo: '/demos/css-styling.html',
+    demo: 'https://pigeonfeng08.github.io/test123/',
     code: 'https://github.com/pigeonfeng08/work1'
   },
-  // 添加更多练习数据...
 };
 
 interface ExercisePageProps {
